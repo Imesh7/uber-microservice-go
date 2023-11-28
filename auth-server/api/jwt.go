@@ -14,7 +14,7 @@ type CustomClaims struct {
 	jwt.StandardClaims
 }
 
-func CreateToken(user User, expiryTime time.Duration) (string, error) {
+func CreateToken(expiryTime time.Duration) (string, error) {
 	jwtPassword := os.Getenv("JWT_KEY")
 	var jwtKey = []byte(jwtPassword)
 	claims := &CustomClaims{
@@ -40,10 +40,6 @@ func ValidateToken(token string) (*jwt.Token, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])
 		}
-		/* _, ok := token.Method.(*jwt.SigningMethodECDSA)
-		if !ok {
-			return nil, jwt.ValidationError{Errors: 401}
-		} */
 		return []byte(os.Getenv("JWT_KEY")), nil
 	})
 

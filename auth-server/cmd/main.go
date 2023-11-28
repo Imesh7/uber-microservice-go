@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-	fmt.Println("application is startings..............")
 	router := gin.Default()
 
 	connDB, err := db.ConnectDatabase()
@@ -20,11 +19,15 @@ func main() {
 
 	v1 := router.Group("/v1")
 	{
-		v1.POST("/create-user", handler.CreateUser)
-		v1.POST("/login", handler.LoginUser)
+		v1.POST("/create-customer", handler.CreateCustomer)
+		v1.POST("/create-driver", handler.CreateDriver)
+		v1.POST("/customer-login", handler.LoginCustomer)
+		v1.POST("/driver-login", handler.LoginDriver)
 		v1.POST("/validate", handler.ValidateToken)
 	}
 
-	connDB.DB.AutoMigrate(&api.User{})
+	connDB.DB.AutoMigrate(&api.Customer{})
+	connDB.DB.AutoMigrate(&api.Driver{})
+	fmt.Println("application is startings..............")
 	router.Run(":8001")
 }

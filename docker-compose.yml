@@ -1,29 +1,29 @@
 version: "3"
 services:
-  # auth-server:
-  #   build:
-  #     context: ./auth-server/
-  #     dockerfile: Dockerfile
-  #   volumes:
-  #     - ./auth-server:/usr/src/app
-  #   command: air
-  #   env_file: .env
-  #   ports:
-  #     - "8001:8001"
+  auth-server:
+    build:
+      context: ./auth-server/
+      dockerfile: Dockerfile
+    volumes:
+      - ./auth-server:/usr/src/app
+    command: air
+    env_file: .env
+    ports:
+      - "8001:8001"
 
-  # auth-server-db:
-  #   image: postgres:alpine
-  #   restart: always
-  #   environment:
-  #     - POSTGRES_NAME=${DB_NAME}
-  #     - POSTGRES_USER=${DB_USER}
-  #     - POSTGRES_PASSWORD=${DB_PASSWORD}
-  #     - POSTGRES_DB=${DB_NAME}
-  #   volumes:
-  #     - postgres-db2:/var/lib/postgresql/data
-  #     - ./auth-server/init.sql:/docker-entrypoint-initdb.d/init.sql
-  #   ports:
-  #     - "5432:5432"
+  auth-server-db:
+    image: postgres:alpine
+    restart: always
+    environment:
+      - POSTGRES_NAME=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - postgres-db2:/var/lib/postgresql/data
+      - ./auth-server/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
 
   trip-management-server:
     build:

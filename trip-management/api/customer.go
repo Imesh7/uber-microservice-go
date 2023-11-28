@@ -85,6 +85,7 @@ func CustomerKafkaConsumer() {
 
 	for {
 		select {
+			//receive driver location from kafka
 		case msg := <-partitionConsumer.Messages():
 
 			valueString := string(msg.Value)
@@ -106,8 +107,8 @@ func sendMessageToCustomer(msg []byte) {
 		return
 	}
 	fmt.Println("sending message is ", data["tripId"])
+	//sending driver location details to customer client
 	if CustomerList[data["tripId"]] != nil {
-
 		err := CustomerList[data["tripId"]].CustomerWebsocket.WriteMessage(1, []byte(data["message"]))
 		if err != nil {
 			return

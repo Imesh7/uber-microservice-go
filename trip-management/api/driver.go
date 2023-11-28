@@ -27,6 +27,7 @@ func ConnectDriverToWebSocket(c *gin.Context) {
 		return
 	}
 	for {
+		//receive location update from the driver client
 		_, msg, err := websocketConn.ReadMessage()
 		if err != nil {
 			c.JSON(1000, gin.H{
@@ -35,6 +36,7 @@ func ConnectDriverToWebSocket(c *gin.Context) {
 			return
 		}
 		fmt.Println(msg)
+		//send the driver location data to customer client
 		sendProducerMessage(msg)
 	}
 
