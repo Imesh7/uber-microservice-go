@@ -1,0 +1,44 @@
+syntax = "proto3";
+option go_package = "/driver";
+package driver;
+
+
+
+service DriverAuthService {
+  rpc Create(CreateDriverRequestProto) returns (CreateDriverResponseProto);
+  rpc Login(LoginRequestProto) returns (LoginResponseProto);
+  rpc VerifyToken(VerifyTokenRequestProto) returns (VerifyTokenResponseProto);
+}
+
+message CreateDriverRequestProto {
+  string email = 1;
+  string password = 2;
+  string name = 3;
+  string address = 4;
+}
+
+message CreateDriverResponseProto {
+  int32 statusCode = 1;
+  string message = 2;
+}
+
+
+message LoginRequestProto {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginResponseProto {
+  int32 statusCode = 1;
+  string message = 2;
+  string token = 3;
+}
+
+message VerifyTokenRequestProto {
+  string token = 1;
+}
+
+message VerifyTokenResponseProto {
+  int32 statusCode = 1;
+  string message = 2;
+}

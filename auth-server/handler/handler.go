@@ -19,7 +19,7 @@ func CreateCustomer(c *gin.Context) {
 		})
 		return
 	} else {
-		api.CreatUser(c, &createUser)
+		//api.Create(c, &createUser)
 	}
 }
 
@@ -34,11 +34,11 @@ func CreateDriver(c *gin.Context) {
 		})
 		return
 	} else {
-		api.CreateDriver(c, &createDriver)
+		//api.CreateDriver(c, &createDriver)
 	}
 }
 
-//login customer
+// login customer
 func LoginCustomer(c *gin.Context) {
 	var loginCustomer config.LoginUserRequest
 
@@ -48,11 +48,11 @@ func LoginCustomer(c *gin.Context) {
 			"message": "Please fill the required fields",
 		})
 	} else {
-		api.LoginUser(c, &loginCustomer)
+		//api.LoginUser(c, &loginCustomer)
 	}
 }
 
-//login driver
+// login driver
 func LoginDriver(c *gin.Context) {
 	var loginDriver config.LoginUserRequest
 
@@ -62,7 +62,7 @@ func LoginDriver(c *gin.Context) {
 			"message": "Please fill the required fields",
 		})
 	} else {
-		api.LoginDriver(c, &loginDriver)
+		//api.LoginDriver(c, &loginDriver)
 	}
 }
 

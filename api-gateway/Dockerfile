@@ -1,16 +1,12 @@
+
 FROM golang:1.21.3
 
-# Set the working directory inside the container
-WORKDIR /app
+WORKDIR /usr/src/app
 
-# Copy the auth server code into the container
-COPY ./auth-server .
+RUN go install github.com/cosmtrek/air@latest
 
-# Build the Go application
-RUN go build -o auth-server .
+COPY . .
 
-# Expose the port that the auth server will run on
-EXPOSE 8001
+#RUN go mod tidy
 
-# Command to run the auth server
-CMD ["./auth-server"]
+

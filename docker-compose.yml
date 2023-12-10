@@ -1,5 +1,17 @@
 version: "3"
 services:
+  api-gateway:
+    build:
+      context: ./api-gateway/
+      dockerfile: Dockerfile
+    volumes:
+      - ./api-gateway:/usr/src/app
+    command: air
+    ports:
+      - "8080:8080"
+    depends_on:
+       - auth-server
+      
   auth-server:
     build:
       context: ./auth-server/
@@ -10,6 +22,7 @@ services:
     env_file: .env
     ports:
       - "8001:8001"
+      - "50051:50051"
 
   auth-server-db:
     image: postgres:alpine
