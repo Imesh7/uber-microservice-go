@@ -13,14 +13,15 @@ Simulate the Uber backend system using microservice architecture.
 
 ## Table of Contents
 
-- [Installation](#installation)
+- [Running the Application](#RunningtheApplication)
 - [Usage](#usage)
 - [Todo](#Todo)
 - [License](#license)
 
-## Installation
+## Running the Application
 
-Instructions for installing the project.
+To run the application, use the following command.  
+Make sure you already installed [Docker](https://www.docker.com/).
 
 ## Usage
 
