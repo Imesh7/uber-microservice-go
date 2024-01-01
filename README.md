@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-A short description of the project.
+Simulate the Uber backend system using microservice.
 
 High level system design
 
