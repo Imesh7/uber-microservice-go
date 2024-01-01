@@ -16,7 +16,6 @@ High level system design
 - [Installation](#installation)
 - [Usage](#usage)
 - [Todo](#Todo)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
@@ -36,10 +35,6 @@ Instructions for using the project.
     - [ ] Graphql (Need to implement)
 - [ ] Payment Process (Proposed - stripe webhook)
 - [ ] Write Unit Testing
-
-## Contributing
-
-Instructions for contributing to the project.
 
 
 ## License
