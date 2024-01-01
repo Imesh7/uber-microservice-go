@@ -6,7 +6,7 @@
 
 Simulate the Uber backend system using microservice.
 
-High level system design
+## High Level System Design
 
 <img src="https://github.com/Imesh7/uber_microserivices_with_go/assets/50042375/7128330c-0a55-4484-a1fd-5c56de81fbc1" width="550">
 
