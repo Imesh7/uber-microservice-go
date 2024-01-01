@@ -23,6 +23,10 @@ Simulate the Uber backend system using microservice architecture.
 To run the application, use the following command.  
 Make sure you already installed [Docker](https://www.docker.com/).
 
+```bash
+docker-compose up
+```
+
 ## Usage
 
 Instructions for using the project.
