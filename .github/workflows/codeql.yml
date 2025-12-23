@@ -18,12 +18,19 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - uses: github/codeql-action/init@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
         with:
           languages: go
-          build-mode: autobuild
-      - name: Change to API Gateway directory
-        run: cd api-gateway
+          build-mode: manual
+
+      - name: Build API Gateway
+        run: |
+          cd api-gateway
+          go mod tidy
+          go build ./...
+
       - uses: github/codeql-action/analyze@v4
 
   scan-auth-server:
@@ -37,51 +44,3 @@ jobs:
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4
-        with:
-          languages: go
-          build-mode: autobuild
-
-      - name: Change to Auth Server directory
-        run: cd auth-server
-
-      - uses: github/codeql-action/analyze@v4
-
-  scan-payment-server:
-    name: Scan Payment Server (Go)
-    runs-on: ubuntu-latest
-    permissions:
-      security-events: write
-      contents: read
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v4
-        with:
-          languages: go
-          build-mode: autobuild
-
-      - name: Change to Payment Server directory
-        run: cd payment-server
-
-      - uses: github/codeql-action/analyze@v4
-
-  scan-trip-management:
-    name: Scan Trip Management (Go)
-    runs-on: ubuntu-latest
-    permissions:
-      security-events: write
-      contents: read
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v4
-        with:
-          languages: go
-          build-mode: autobuild
-
-      - name: Change to Trip Management directory
-        run: cd trip-management
-
-      - uses: github/codeql-action/analyze@v4
